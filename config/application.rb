@@ -4,7 +4,7 @@ require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(*Rails.groups)
+Bundler.require(*Rails.groups, :assets)
 
 module FinancialApp
   class Application < Rails::Application
@@ -15,5 +15,10 @@ module FinancialApp
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    # Enable the asset pipeline
+    config.assets.enabled = true
+    # Version of your assets, change this if you want to expire all your assets
+    config.assets.version = '1.0'
+
   end
 end
